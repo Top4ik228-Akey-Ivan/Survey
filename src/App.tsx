@@ -1,10 +1,11 @@
 import './App.css'
+import RadioButtonGroup from './ui/RadioButtonGroup/RadioButtonGroup'
 
 function App() {
 
   return (
     <>
-      initail commit
+      <RadioButtonGroup/>
     </>
   )
 }

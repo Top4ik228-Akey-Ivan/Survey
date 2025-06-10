@@ -2,6 +2,14 @@
   --mobile-width: 296px;
   --tablet-width: 600px;
   --laptop-width: 904px;
+
+  --blue: #45A5F6;
+  --blue-hover: #007EE5;
+  --lightBlue: #DAEDFD;
+  --lightBlue-hover: #B5DBFB;
+  --disabled: #D0D4DC;
+  --purple: #8A6BF4;
+
 }
 
 * {
