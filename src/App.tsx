@@ -1,11 +1,11 @@
-import './App.css'
-import Textarea from './ui/Textarea/Textarea'
+import './App.css';
+import NextButton from './ui/NextButton/NextButton';
 
 function App() {
 
   return (
     <>
-      <Textarea/>
+      <NextButton/>
     </>
   )
 }
