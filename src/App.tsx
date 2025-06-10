@@ -1,11 +1,11 @@
 import './App.css'
-import RadioButtonGroup from './ui/RadioButtonGroup/RadioButtonGroup'
+import Textarea from './ui/Textarea/Textarea'
 
 function App() {
 
   return (
     <>
-      <RadioButtonGroup/>
+      <Textarea/>
     </>
   )
 }

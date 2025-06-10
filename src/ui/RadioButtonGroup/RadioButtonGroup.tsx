@@ -7,21 +7,24 @@ const RadioButtonGroup: React.FC = () => {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
     return (
-        <div className={styles.radioGroup}>
-            {options.map((label, index) => (
-                <label key={index} className={styles.radioLabel}>
-                    <input
-                        type="radio"
-                        name="example"
-                        value={label}
-                        checked={selectedIndex === index}
-                        onChange={() => setSelectedIndex(index)}
-                    />
-                    <span className={styles.radioCustom}></span>
-                    {label}
-                </label>
-            ))}
-        </div>
+        <>
+            <p className={styles.question}>Какой должен быть вопрос</p>
+            <div className={styles.radioGroup}>
+                {options.map((label, index) => (
+                    <label key={index} className={styles.radioLabel}>
+                        <input
+                            type="radio"
+                            name="example"
+                            value={label}
+                            checked={selectedIndex === index}
+                            onChange={() => setSelectedIndex(index)}
+                        />
+                        <span className={styles.radioCustom}></span>
+                        <p className={styles.answer}>{label}</p>
+                    </label>
+                ))}
+            </div>
+        </>
     );
 };
 

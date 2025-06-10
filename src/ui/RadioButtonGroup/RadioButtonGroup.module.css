@@ -1,15 +1,17 @@
-.radioGroup{
-    display: flex;
-    gap: 24px;
+.radioGroup {
+  display: flex;
+  gap: 24px;
 }
 
 /* Обертка для кастомной радиокнопки и текста */
 .radioLabel {
   position: relative;
-  padding-left: 24px; /* Отступ для кастомной кнопки слева */
+  padding-left: 24px;
+  /* Отступ для кастомной кнопки слева */
   cursor: pointer;
   font-size: 16px;
-  user-select: none; /* Запрет на выделение текста */
+  user-select: none;
+  /* Запрет на выделение текста */
 }
 
 /* Скрытие стандартного input[type=radio] */
@@ -41,21 +43,35 @@
 }
 
 /* Наведение на НЕвыбранную кнопку — делает ее голубой */
-.radioLabel:hover input:not(:checked) ~ .radioCustom {
-  background-color: var(--blue); /* Голубой при наведении */
+.radioLabel:hover input:not(:checked)~.radioCustom {
+  background-color: var(--blue);
+  /* Голубой при наведении */
 }
 
 /* Выбранная кнопка — фон голубой */
-.radioLabel input:checked ~ .radioCustom {
+.radioLabel input:checked~.radioCustom {
   background-color: var(--blue);
 }
 
 /* Внутренний белый кружок отображается только у выбранной */
-.radioLabel input:checked ~ .radioCustom::after {
+.radioLabel input:checked~.radioCustom::after {
   display: block;
 }
 
 /* Затемнение выбранной при наведении */
-.radioLabel:hover input:checked ~ .radioCustom {
-  background-color: var(--blue-hover); /* Темно-голубой */
+.radioLabel:hover input:checked~.radioCustom {
+  background-color: var(--blue-hover);
+  /* Темно-голубой */
+}
+
+.question{
+  font-size: 16px;
+  font-weight: 400;
+
+  margin-bottom: 8px;
+}
+
+.answer{
+  font-size: 12px;
+  font-weight: 400;
 }
