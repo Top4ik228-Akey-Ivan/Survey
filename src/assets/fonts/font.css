@@ -1,0 +1,53 @@
+/* Thin weight (100) */
+@font-face {
+  font-family: 'CustomFont';
+  src: url('./CirceRounded-Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ExtraLight weight (200) */
+@font-face {
+  font-family: 'CustomFont';
+  src: url('./CirceRounded-ExtraLight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Light weight (300) */
+@font-face {
+  font-family: 'CustomFont';
+  src: url('./CirceRounded-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Regular weight (400) */
+@font-face {
+  font-family: 'CustomFont';
+  src: url('./CirceRounded-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold weight (700) */
+@font-face {
+  font-family: 'CustomFont';
+  src: url('./CirceRounded-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ExtraBold weight (800) */
+@font-face {
+  font-family: 'CustomFont';
+  src: url('./CirceRounded-ExtraBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}

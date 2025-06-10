@@ -1,0 +1,13 @@
+:root {
+  --mobile-width: 296px;
+  --tablet-width: 600px;
+  --laptop-width: 904px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: 'CustomFont', sans-serif;
+}
