@@ -1,18 +1,22 @@
 import { useState } from 'react';
 import styles from './Input.module.css';
 
-const Input = () => {
+interface InputProps {
+    text: string;
+}
+
+const Input: React.FC<InputProps> = ({text}) => {
 
     const [data, setData] = useState<string>('');
 
     return (
-        <>
-            <p className={styles.inputTitle}>Описание для инпута</p>
+        <div>
+            <p className={styles.inputTitle}>{text}</p>
             <input className={`${styles.input} ${data ? styles.filled : ''}`}
                 value={data}
                 onChange={(e) => setData(e.target.value)}
             />
-        </>
+        </div>
     );
 }
 

@@ -22,13 +22,23 @@
   color: var(--black);
 }
 
-.container{
+body {
+  background-color: #F6F6F8;
+}
+
+.container {
   margin: 0 auto;
   width: var(--laptop-width);
 }
 
-.contentContainer{
+.contentContainer {
   margin: 0 auto;
-  margin-top: 48px;
   width: 776px;
+  padding: 48px 0 32px 0;
+}
+
+.page {
+  margin-top: 20px;
+  border-radius: 20px;
+  background-color: white;
 }

@@ -1,5 +1,4 @@
 import ProgressBar from "../../components/ProgressBar/ProgressBar";
-import styles from './PicturePage.module.css';
 import PictureCardsList from "../../components/PictureCardsList/PictureCardsList";
 import PicturePageHeader from "../../components/PicturePageHeader/PicturePageHeader";
 import PicturePageFooter from "../../components/PicturePageFooter/PicturePageFooter";
@@ -15,7 +14,7 @@ const PicturePage: React.FC = () => {
     const allUploaded = [1, 2, 3].every((id) => uploadedImages[id]);
 
     return (
-        <div className={styles.page}>
+        <div className='page'>
             <ProgressBar currentStep={1} totalSteps={3} />
 
             <div className="contentContainer">

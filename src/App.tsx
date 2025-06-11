@@ -1,13 +1,13 @@
 import './App.css';
-import PicturePage from './pages/PicturePage/PicturePage';
+import SurveyPage from './pages/SurveyPage/SurveyPage';
 
 function App() {
 
-  return (
-    <div className='container'>
-      <PicturePage/>
-    </div>
-  )
+    return (
+        <div className='container'>
+            <SurveyPage />
+        </div>
+    )
 }
 
 export default App

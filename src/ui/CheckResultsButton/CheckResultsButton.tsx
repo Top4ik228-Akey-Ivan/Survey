@@ -7,8 +7,7 @@ const CheckResultsButton: React.FC = () => {
 
     return (
         <button disabled={disabled} className={styles.button}>
-            <p className={`${styles.text} ${disabled ? styles.disabledText : ''}`}
-            >
+            <p className={`${styles.text} ${disabled ? styles.disabledText : ''}`}>
                 Узнать результаты
             </p>
             <img src={disabled ? chevronRight : chevronRightWhite} alt="" />

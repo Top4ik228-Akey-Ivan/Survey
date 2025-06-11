@@ -1,14 +1,23 @@
 import React, { useState } from 'react';
 import styles from './RadioButtonGroup.module.css';
 
-const options = ['Один', 'Два', 'Три', 'Четыре', 'Пять'];
+interface RadioButtonGroupProps {
+    options: string[];
+    question: string;
+    onChange: (value: string) => void;
+}
 
-const RadioButtonGroup: React.FC = () => {
+const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({ options, question, onChange }) => {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
+    const handleChange = (index: number) => {
+        setSelectedIndex(index);
+        onChange(options[index])
+    }
+
     return (
-        <>
-            <p className={styles.question}>Какой должен быть вопрос</p>
+        <div>
+            <p className={styles.question}>{question}</p>
             <div className={styles.radioGroup}>
                 {options.map((label, index) => (
                     <label key={index} className={styles.radioLabel}>
@@ -17,14 +26,14 @@ const RadioButtonGroup: React.FC = () => {
                             name="example"
                             value={label}
                             checked={selectedIndex === index}
-                            onChange={() => setSelectedIndex(index)}
+                            onChange={() => handleChange(index)}
                         />
                         <span className={styles.radioCustom}></span>
                         <p className={styles.answer}>{label}</p>
                     </label>
                 ))}
             </div>
-        </>
+        </div>
     );
 };
 
