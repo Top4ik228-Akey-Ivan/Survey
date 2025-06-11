@@ -1,10 +1,14 @@
-import ProgressBar from "../../components/ProgressBar/ProgressBar";
 import PictureCardsList from "../../components/PictureCardsList/PictureCardsList";
 import PicturePageHeader from "../../components/PicturePageHeader/PicturePageHeader";
 import PicturePageFooter from "../../components/PicturePageFooter/PicturePageFooter";
 import { useState } from "react";
 
-const PicturePage: React.FC = () => {
+interface PicturePageProps {
+    setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
+    currentStep: number;
+}
+
+const PicturePage: React.FC<PicturePageProps> = ({ currentStep, setCurrentStep }) => {
     const [uploadedImages, setUploadedImages] = useState<{ [id: number]: boolean }>({});
 
     const handleImageUpload = (id: number, uploaded: boolean) => {
@@ -15,12 +19,14 @@ const PicturePage: React.FC = () => {
 
     return (
         <div className='page'>
-            <ProgressBar currentStep={1} totalSteps={3} />
-
             <div className="contentContainer">
                 <PicturePageHeader />
                 <PictureCardsList onImageUpload={handleImageUpload} />
-                <PicturePageFooter currentStep={1} totalSteps={3} disabled={!allUploaded} />
+                <PicturePageFooter
+                    currentStep={currentStep}
+                    disabledFirst={!allUploaded}
+                    setCurrentStep={setCurrentStep}
+                />
             </div>
         </div>
     );

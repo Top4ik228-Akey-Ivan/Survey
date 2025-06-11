@@ -1,10 +1,14 @@
 import chevronLeft from '../../assets/icons/chevronLeft.svg';
 import styles from './ToPicturesButton.module.css';
 
-const ToPicturesButton: React.FC = () => {
+interface ToPicturesButtonProps {
+    onClick: () => void;
+}
+
+const ToPicturesButton: React.FC<ToPicturesButtonProps> = ({onClick}) => {
 
     return (
-        <button className={styles.button}>
+        <button onClick={onClick} className={styles.button}>
             <img src={chevronLeft} alt="" />
             <p className={styles.text}>К загрузке рисунков</p>
         </button>

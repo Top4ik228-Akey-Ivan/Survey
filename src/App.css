@@ -29,6 +29,7 @@ body {
 .container {
   margin: 0 auto;
   width: var(--laptop-width);
+  position: relative;
 }
 
 .contentContainer {

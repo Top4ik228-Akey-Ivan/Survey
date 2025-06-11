@@ -11,3 +11,8 @@
     font-weight: 700;
     color: #A0A9B8;
 }
+
+.buttonBox{
+    display: flex;
+    gap: 8px;
+}

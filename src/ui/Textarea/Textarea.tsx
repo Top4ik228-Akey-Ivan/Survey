@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import styles from './textarea.module.css';
 
-const Textarea: React.FC = () => {
+interface TextareaProps {
+    text: string;
+}
 
+const Textarea: React.FC<TextareaProps> = ({text}) => {
     const [data, setData] = useState<string>('');
 
     return (
         <div>
-            <p className={styles.textareaTitle}>Описание для текстареа</p>
+            <p className={styles.textareaTitle}>{text}</p>
             <textarea className={`${styles.textarea} ${data ? styles.filled : ''}`}
                 value={data}
                 onChange={(e) => setData(e.target.value)}
