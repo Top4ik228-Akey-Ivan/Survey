@@ -1,0 +1,30 @@
+.card{
+    width: 216px;
+}
+
+.pictureBox {
+    width: 216px;
+    height: 161px;
+    background-color: #F6F6F8;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconBox {
+    width: 64px;
+    height: 64px;
+    background-color: #DAEDFD;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.desc{
+    text-align: center;
+    margin-top: 8px;
+}

@@ -1,0 +1,37 @@
+.progressBarWrapper {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.progressBar {
+    width: 100%;
+    height: 12px;
+    background-color: var(--lightBlue);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    overflow: hidden;
+}
+
+.progressFull {
+    height: 100%;
+    background-color: var(--blue);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    /* Скруглено справа */
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    transition: width 0.3s ease;
+}
+
+.progressPartial {
+    height: 100%;
+    background-color: var(--blue);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 0;
+    /* Без скругления справа */
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    transition: width 0.3s ease;
+}

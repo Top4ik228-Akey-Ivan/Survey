@@ -1,0 +1,13 @@
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    margin-top: 64px;
+}
+
+.step{
+    font-size: 14px;
+    font-weight: 700;
+    color: #A0A9B8;
+}

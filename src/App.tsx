@@ -1,12 +1,12 @@
 import './App.css';
-import DataPicker from './ui/DataPicker/DataPicker';
+import PicturePage from './pages/PicturePage/PicturePage';
 
 function App() {
 
   return (
-    <>
-      <DataPicker/>
-    </>
+    <div className='container'>
+      <PicturePage/>
+    </div>
   )
 }
 

@@ -21,3 +21,14 @@
   font-family: 'CustomFont', sans-serif;
   color: var(--black);
 }
+
+.container{
+  margin: 0 auto;
+  width: var(--laptop-width);
+}
+
+.contentContainer{
+  margin: 0 auto;
+  margin-top: 48px;
+  width: 776px;
+}
