@@ -1,15 +1,11 @@
 import './App.css';
-import CheckResultsButton from './ui/CheckResultsButton/CheckResultsButton';
-import NextButton from './ui/NextButton/NextButton';
-import ToPicturesButton from './ui/ToPicturesButton/ToPicturesButton';
+import DataPicker from './ui/DataPicker/DataPicker';
 
 function App() {
 
   return (
     <>
-      <NextButton/>
-      <CheckResultsButton/>
-      <ToPicturesButton/>
+      <DataPicker/>
     </>
   )
 }
