@@ -3,9 +3,9 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 9px 24px;
+    padding: 9px 44px;
 
-    background-color: var(--blue);
+    background-color: var(--lightBlue);
     border-radius: 100px;
     outline: none;
     border: none;
@@ -14,21 +14,10 @@
 }
 
 .button:hover{
-    background-color: var(--blue-hover);
-}
-
-.button:disabled {
-    background-color: var(--disabled);
-    color: #44537180;
-    cursor: default;
+    background-color: var(--lightBlue-hover);
 }
 
 .text {
     font-size: 16px;
     font-weight: 400;
-    color: white;
-}
-
-.disabledText {
-    color: #44537180;
 }

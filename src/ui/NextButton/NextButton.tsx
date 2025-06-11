@@ -2,7 +2,7 @@ import arrowWhite from '../../assets/icons/ArrowRightWhite.svg';
 import arrowGray from '../../assets/icons/ArrowRight.svg';
 import styles from './NextButton.module.css';
 
-const NextButton = () => {
+const NextButton: React.FC = () => {
     const disabled = false;
 
     return (

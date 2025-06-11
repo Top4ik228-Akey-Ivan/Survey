@@ -10,6 +10,7 @@
   --disabled: #D0D4DC;
   --purple: #8A6BF4;
 
+  --black: (#293244);
 }
 
 * {
@@ -18,4 +19,5 @@
   box-sizing: border-box;
 
   font-family: 'CustomFont', sans-serif;
+  color: var(--black);
 }

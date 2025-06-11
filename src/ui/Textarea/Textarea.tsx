@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from './textarea.module.css';
 
-const Textarea = () => {
+const Textarea: React.FC = () => {
 
     const [data, setData] = useState<string>('');
 
