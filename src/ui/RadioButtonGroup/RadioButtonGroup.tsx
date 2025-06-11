@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import styles from './RadioButtonGroup.module.css';
+import type { IQuestion } from '../../types';
 
 interface RadioButtonGroupProps {
     options: string[];
-    question: string;
-    onChange: (value: string) => void;
+    question: IQuestion;
+    onChange?: (value: string) => void;
 }
 
 const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({ options, question, onChange }) => {
@@ -12,18 +13,18 @@ const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({ options, question, 
 
     const handleChange = (index: number) => {
         setSelectedIndex(index);
-        onChange(options[index])
+        if (onChange) onChange(options[index])
     }
 
     return (
         <div>
-            <p className={styles.question}>{question}</p>
+            <p className={styles.question}>{question.text}</p>
             <div className={styles.radioGroup}>
                 {options.map((label, index) => (
                     <label key={index} className={styles.radioLabel}>
                         <input
                             type="radio"
-                            name="example"
+                            name={`${question.id}${question.text}`}
                             value={label}
                             checked={selectedIndex === index}
                             onChange={() => handleChange(index)}
