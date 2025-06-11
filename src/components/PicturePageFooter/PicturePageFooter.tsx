@@ -1,13 +1,21 @@
 import NextButton from '../../ui/NextButton/NextButton';
 import styles from './PicturePageFooter.module.css';
 
-const PicturePageFooter: React.FC = () => {
+interface PicturePageFooterProps {
+    disabled: boolean;
+    currentStep: number;
+    totalSteps: number;
+}
+
+const PicturePageFooter: React.FC<PicturePageFooterProps> = ({
+    disabled, currentStep, totalSteps
+}) => {
     return (
         <div className={styles.footer}>
-            <p className={styles.step}>Шаг 1/3</p>
-            <NextButton disabled={true}/>
+            <p className={styles.step}>Шаг {currentStep}/{totalSteps}</p>
+            <NextButton disabled={disabled}/>
         </div>
     );
-}
+}   
  
 export default PicturePageFooter;
