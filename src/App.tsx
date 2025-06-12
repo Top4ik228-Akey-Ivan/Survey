@@ -3,10 +3,11 @@ import './App.css';
 import ProgressBar from './components/ProgressBar/ProgressBar';
 import PicturePage from './pages/PicturePage/PicturePage';
 import SurveyPage from './pages/SurveyPage/SurveyPage';
+import ResultsPage from './pages/ResultsPage/ResultsPage';
 
 function App() {
 
-    const [currentStep, setCurrentStep] = useState<number>(2);
+    const [currentStep, setCurrentStep] = useState<number>(3);
 
     return (
         <div className='container'>
@@ -24,7 +25,11 @@ function App() {
                     currentStep={currentStep}
                 />)}
 
-            {currentStep === 3 && <p>Еще рано</p>}
+            {currentStep === 3 &&
+                (<ResultsPage
+                    setCurrentStep={setCurrentStep}
+                    currentStep={currentStep}
+                />)}
         </div>
     )
 }

@@ -135,7 +135,7 @@ export const surveySliceInitialState: SurveyState = {
         childDOB: '',
         childGender: '',
         parentName: '',
-        emotionalState: 'взволнован',
+        emotionalState: 'Хорошее',
         q1_1: '',
         q1_2: '',
         q1_3: '',
