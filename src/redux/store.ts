@@ -1,14 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit';
 import pictureSlice from './slices/pictureSlice';
 import { pictureApi } from './services/picturesApi';
+import { surveyApi } from './services/surveyApi';
+import surveySlice  from './slices/surveySlice';
 
 export const store = configureStore({
     reducer: {
         [pictureApi.reducerPath]: pictureApi.reducer,
+        [surveyApi.reducerPath]: surveyApi.reducer,
         pictures: pictureSlice,
+        survey: surveySlice,
     },
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(pictureApi.middleware),
+        getDefaultMiddleware().concat(pictureApi.middleware, surveyApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

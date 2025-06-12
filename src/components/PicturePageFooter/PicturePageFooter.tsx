@@ -1,36 +1,57 @@
+import { useSelector } from 'react-redux';
+import { SurveyData } from '../../constants/constants';
 import type { PictureFile } from '../../pages/PicturePage/PicturePage';
 import { useUploadPicturesMutation } from '../../redux/services/picturesApi';
+import { useUploadSurveyMutation } from '../../redux/services/surveyApi';
 import CheckResultsButton from '../../ui/CheckResultsButton/CheckResultsButton';
 import NextButton from '../../ui/NextButton/NextButton';
 import ToPicturesButton from '../../ui/ToPicturesButton/ToPicturesButton';
 import styles from './PicturePageFooter.module.css';
+import type { RootState } from '../../redux/store';
 
 interface PicturePageFooterProps {
-    disabledFirst?: boolean;
-    disabledSecond?: boolean;
     currentStep: number;
     setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
-    filesList: PictureFile[];
+    filesList?: PictureFile[];
 }
 
 const PicturePageFooter: React.FC<PicturePageFooterProps> = ({
-    disabledFirst, disabledSecond, currentStep, setCurrentStep, filesList
+    currentStep, setCurrentStep, filesList
 }) => {
-    const [upload] = useUploadPicturesMutation();
+
+    const uploadedPictures = useSelector((state: RootState) => state.pictures.uploadedPictures)
+    const allUploaded = [1, 2, 3].every((id) =>
+        uploadedPictures.some(picture => picture.id === id)
+    );
+
+    const survey = useSelector((state: RootState) => state.survey);
+    const isSurveyComplete = Object.values(survey.survey).every(
+        (value) => value !== '' && value !== null && value !== undefined
+    );
+    console.log(survey)
+
+    const [uploadPictures] = useUploadPicturesMutation();
+    const [uploadSurvey] = useUploadSurveyMutation();
 
     const handleNextBtnClick = async () => {
         const formData = new FormData();
-        filesList.forEach(({ file }) => {
+        filesList?.forEach(({ file }) => {
             formData.append('files', file);
         });
-
-
         try {
-            await upload(formData).unwrap();
+            await uploadPictures(formData).unwrap();
             setCurrentStep((prev) => prev + 1);
         } catch (error) {
             console.error('Ошибка при загрузке файлов', error);
-            // Можно добавить уведомление пользователю
+        }
+    }
+
+    const handleCheckResultsBtnCLick = async () => {
+        try {
+            await uploadSurvey(survey);
+            setCurrentStep((prev) => prev + 1);
+        } catch (error) {
+            console.error('Ошибка при загрузке опроса', error)
         }
     }
 
@@ -40,7 +61,7 @@ const PicturePageFooter: React.FC<PicturePageFooterProps> = ({
 
             {currentStep === 1 && (
                 <NextButton
-                    disabled={disabledFirst || false}
+                    disabled={!allUploaded}
                     onClick={handleNextBtnClick}
                 />
             )}
@@ -51,8 +72,8 @@ const PicturePageFooter: React.FC<PicturePageFooterProps> = ({
                         onClick={() => setCurrentStep(prev => prev - 1)}
                     />
                     <CheckResultsButton
-                        disabled={disabledSecond || false}
-                        onClick={() => setCurrentStep(prev => prev + 1)}
+                        disabled={!isSurveyComplete}
+                        onClick={handleCheckResultsBtnCLick}
                     />
                 </div>
             )}

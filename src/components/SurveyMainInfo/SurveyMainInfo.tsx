@@ -8,14 +8,13 @@ const SurveyMainInfo: React.FC = () => {
         <div>
             <p className={styles.title}>Общая информация о ребенке</p>
             <div className={styles.inputBox}>
-                <Input text='Имя ребенка' />
-                <DataPicker text='Дата рождения ребенка'/>
+                <Input id='childName' text='Имя ребенка' />
+                <DataPicker id='childDOB' text='Дата рождения ребенка'/>
                 <RadioButtonGroup 
-                    question='Пол ребенка' 
+                    question={{id: 'childGender', text: 'Пол ребенка'}} 
                     options={['Мужской', 'Женский']}
-                    onChange={(value) => console.log(value)}
                 />
-                <Input text='Имя родителя, заполняющего анкету'/>
+                <Input id='parentName' text='Имя родителя, заполняющего анкету'/>
             </div>
         </div>
     );

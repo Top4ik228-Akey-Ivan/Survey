@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import styles from './DataPicker.module.css';
@@ -7,24 +6,36 @@ import chevronLeft from '../../assets/icons/ChevronLeft.svg';
 
 import { registerLocale } from 'react-datepicker';
 import { ru } from 'date-fns/locale/ru';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import type { RootState } from '../../redux/store';
+import { updateField } from '../../redux/slices/surveySlice';
 registerLocale('ru', ru);
 
 interface DataPrickerProps {
+    id: string;
     text: string;
 }
 
-const DataPicker: React.FC<DataPrickerProps> = ({ text }) => {
-    const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+const DataPicker: React.FC<DataPrickerProps> = ({ id, text }) => {
+    const dispatch = useDispatch();
+    const valueFromStore = useSelector(
+        (state: RootState) => state.survey.survey[id]
+    );
+
+    const selectedDate = valueFromStore ? new Date(valueFromStore) : null;
 
     const handleClick = (d: Date | null) => {
-        setSelectedDate(d);
+        if (d) {
+            dispatch(updateField({ field: id, value: d.toISOString() }));
+        }
     };
 
     return (
         <div>
             <p className={styles.desc}>{text}</p>
             <DatePicker
-                className={styles.dateInput}
+                className={`${styles.dateInput} ${selectedDate ? styles.filled: ''}`}
                 selected={selectedDate}
                 onChange={handleClick}
                 locale="ru"

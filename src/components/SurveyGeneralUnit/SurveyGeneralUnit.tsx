@@ -13,7 +13,7 @@ const SurveyGeneralUnit: React.FC = () => {
             <p className={styles.title}>Раздел 5. Общие вопросы</p>
             <RadioButtonGroup
                 question={{ 
-                    id: 1, 
+                    id: 'q5_1', 
                     text: 'Как Вы оцениваете общее эмоциональное состояние вашего ребенка?' 
                 }}
                 options={options}
@@ -21,6 +21,7 @@ const SurveyGeneralUnit: React.FC = () => {
             {generalUnitQuestions.map((question) => 
                 <Textarea
                     key={question.id}
+                    id={question.id}
                     text={question.text}
                 />
             )}

@@ -17,7 +17,8 @@
 }
 
 .dateInput:hover, 
-.dateInput:focus {
+.dateInput:focus,
+.dateInput.filled {
     border: 1px solid var(--purple);
     color: var(--black);
 }

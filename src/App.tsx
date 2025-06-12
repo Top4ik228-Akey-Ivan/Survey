@@ -6,7 +6,7 @@ import SurveyPage from './pages/SurveyPage/SurveyPage';
 
 function App() {
 
-    const [currentStep, setCurrentStep] = useState<number>(1);
+    const [currentStep, setCurrentStep] = useState<number>(2);
 
     return (
         <div className='container'>

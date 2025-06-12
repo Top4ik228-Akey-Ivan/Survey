@@ -6,6 +6,8 @@ import styles from './SurveyPage.module.css';
 import { units } from "../../constants/constants";
 import SurveyGeneralUnit from "../../components/SurveyGeneralUnit/SurveyGeneralUnit";
 import PicturePageFooter from "../../components/PicturePageFooter/PicturePageFooter";
+import { useSelector } from "react-redux";
+import type { RootState } from "../../redux/store";
 
 interface SurveyPageProps {
     setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
@@ -13,6 +15,9 @@ interface SurveyPageProps {
 }
 
 const SurveyPage: React.FC<SurveyPageProps> = ({ setCurrentStep, currentStep }) => {
+    const survey = useSelector((state: RootState) => state.survey)
+    console.log(survey)
+
     return (
         <div className='page'>
             <div className={`contentContainer ${styles.pageContent}`}>
@@ -30,7 +35,6 @@ const SurveyPage: React.FC<SurveyPageProps> = ({ setCurrentStep, currentStep }) 
                 <SurveyGeneralUnit />
                 <PicturePageFooter
                     currentStep={currentStep}
-                    disabledSecond={false}
                     setCurrentStep={setCurrentStep}
                 />
             </div>
