@@ -55,16 +55,15 @@ const PictureCard: React.FC<PictureCardProps> = ({ text, id, setFilesList }) => 
         <div className={styles.card}>
             <div
                 className={styles.pictureBox}
-                onClick={handleIconClick}
                 style={{
                     backgroundImage: previewUrl ? `url(${previewUrl})` : undefined,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
                     backgroundColor: previewUrl ? 'transparent' : '#F6F6F8',
-                    cursor: 'pointer',
                 }}
             >
-                <div className={styles.iconBox}>
+                <div
+                    className={styles.iconBox}
+                    onClick={handleIconClick}
+                >
                     <img src={previewUrl ? reload : upload} alt="" />
                 </div>
                 <input

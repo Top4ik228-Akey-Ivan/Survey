@@ -1,0 +1,10 @@
+.statusBox{
+    display: flex;
+    align-items: center;
+    gap:8px;
+}
+
+.statusText{
+    font-size: 24px;
+    font-weight: 400;
+}

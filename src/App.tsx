@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import './App.css';
 import ProgressBar from './components/ProgressBar/ProgressBar';
-import PicturePage from './pages/PicturePage/PicturePage';
+import PicturePage, { type PictureFile } from './pages/PicturePage/PicturePage';
 import SurveyPage from './pages/SurveyPage/SurveyPage';
 import ResultsPage from './pages/ResultsPage/ResultsPage';
 
 function App() {
 
-    const [currentStep, setCurrentStep] = useState<number>(3);
+    const [currentStep, setCurrentStep] = useState<number>(1);
+    const [filesList, setFilesList] = useState<PictureFile[]>([]);
 
     return (
         <div className='container'>
@@ -17,6 +18,8 @@ function App() {
                 (<PicturePage
                     setCurrentStep={setCurrentStep}
                     currentStep={currentStep}
+                    filesList={filesList}
+                    setFilesList={setFilesList}
                 />)}
 
             {currentStep === 2 &&

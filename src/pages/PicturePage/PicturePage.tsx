@@ -1,7 +1,6 @@
 import PictureCardsList from "../../components/PictureCardsList/PictureCardsList";
 import PicturePageHeader from "../../components/PicturePageHeader/PicturePageHeader";
 import PicturePageFooter from "../../components/PicturePageFooter/PicturePageFooter";
-import { useState } from "react";
 
 export interface PictureFile {
     id: number;
@@ -11,10 +10,13 @@ export interface PictureFile {
 interface PicturePageProps {
     setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
     currentStep: number;
+    filesList: PictureFile[];
+    setFilesList: React.Dispatch<React.SetStateAction<PictureFile[]>>;
 }
 
-const PicturePage: React.FC<PicturePageProps> = ({ currentStep, setCurrentStep }) => {
-    const [filesList, setFilesList] = useState<PictureFile[]>([]);
+const PicturePage: React.FC<PicturePageProps> = ({ 
+    currentStep, setCurrentStep, filesList, setFilesList
+}) => {
 
     return (
         <div className='page'>

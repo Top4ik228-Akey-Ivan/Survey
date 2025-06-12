@@ -86,3 +86,10 @@ export interface ISurveyUpload {
         q5_5: string;
     }
 }
+
+
+// results Api
+export interface IResultsResponse {
+    status: string;
+    report_url?: string;
+}
