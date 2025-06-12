@@ -4,7 +4,7 @@
 }
 
 .warning{
-    width: 487px;
+    /* width: 487px; */
     border-radius: 100px;
     display: flex;
     gap: 8px;
@@ -18,4 +18,10 @@
 .warningText{
     color: #E12828;
     font-size: 14px;
+}
+
+@media (max-width: 640px) {
+  .warning {
+    border-radius: 8px;
+  }
 }

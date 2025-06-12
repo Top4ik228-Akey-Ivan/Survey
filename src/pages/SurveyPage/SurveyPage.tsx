@@ -16,19 +16,22 @@ const SurveyPage: React.FC<SurveyPageProps> = ({ setCurrentStep, currentStep }) 
 
     return (
         <div className='page'>
-            <div className={`contentContainer ${styles.pageContent}`}>
-                <SurveyMainInfo />
-                <WarningMessage />
+            <div className={'contentContainer'}>
+                <div className={styles.pageContent}>
+                    <SurveyMainInfo />
+                    <WarningMessage />
 
-                {units.map((unit) =>
-                    <SurveyRadioUnit
-                        key={unit.id}
-                        unitTitle={unit.unitTitle}
-                        questions={unit.questions}
-                    />
-                )}
+                    {units.map((unit) =>
+                        <SurveyRadioUnit
+                            key={unit.id}
+                            unitTitle={unit.unitTitle}
+                            questions={unit.questions}
+                        />
+                    )}
 
-                <SurveyGeneralUnit />
+                    <SurveyGeneralUnit />
+                </div>
+                
                 <PicturePageFooter
                     currentStep={currentStep}
                     setCurrentStep={setCurrentStep}

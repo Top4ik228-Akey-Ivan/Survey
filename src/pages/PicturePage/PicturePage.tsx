@@ -14,17 +14,19 @@ interface PicturePageProps {
     setFilesList: React.Dispatch<React.SetStateAction<PictureFile[]>>;
 }
 
-const PicturePage: React.FC<PicturePageProps> = ({ 
+const PicturePage: React.FC<PicturePageProps> = ({
     currentStep, setCurrentStep, filesList, setFilesList
 }) => {
 
     return (
         <div className='page'>
             <div className="contentContainer">
-                <PicturePageHeader />
-                <PictureCardsList
-                    setFilesList={setFilesList}
-                />
+                <div>
+                    <PicturePageHeader />
+                    <PictureCardsList
+                        setFilesList={setFilesList}
+                    />
+                </div>
                 <PicturePageFooter
                     currentStep={currentStep}
                     setCurrentStep={setCurrentStep}

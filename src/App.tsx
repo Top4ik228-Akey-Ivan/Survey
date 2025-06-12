@@ -7,7 +7,7 @@ import ResultsPage from './pages/ResultsPage/ResultsPage';
 
 function App() {
 
-    const [currentStep, setCurrentStep] = useState<number>(1);
+    const [currentStep, setCurrentStep] = useState<number>(2);
     const [filesList, setFilesList] = useState<PictureFile[]>([]);
 
     return (

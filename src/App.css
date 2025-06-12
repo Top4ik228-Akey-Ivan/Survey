@@ -1,7 +1,12 @@
 :root {
   --mobile-width: 296px;
+  --mobile--content-width: 264px;
+
   --tablet-width: 600px;
+  --tablet-content-width: 552px;
+
   --laptop-width: 904px;
+  --laptop-content-width: 776px;
 
   --blue: #45A5F6;
   --blue-hover: #007EE5;
@@ -10,7 +15,7 @@
   --disabled: #D0D4DC;
   --purple: #8A6BF4;
 
-  --black: (#293244);
+  --black: #293244;
 }
 
 * {
@@ -34,8 +39,11 @@ body {
 
 .contentContainer {
   margin: 0 auto;
-  width: 776px;
+  width: var(--laptop-content-width);
   padding: 48px 0 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
 }
 
 .page {
@@ -43,3 +51,28 @@ body {
   border-radius: 20px;
   background-color: white;
 }
+
+/* Медиазапросы */
+
+@media (max-width: 1200px) and (min-width: 640px) {
+  .container {
+    width: var(--tablet-width);
+  }
+
+  .contentContainer {
+    width: var(--tablet-content-width);
+    gap: 48px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: var(--mobile-width);
+  }
+
+  .contentContainer {
+    width: var(--mobile--content-width);
+    gap: 32px;
+  }
+}
+
