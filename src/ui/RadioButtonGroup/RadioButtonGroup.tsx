@@ -8,9 +8,10 @@ import type { RootState } from '../../redux/store';
 interface RadioButtonGroupProps {
     options: string[];
     question: IQuestion;
+    direction ?: string;
 }
 
-const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({ options, question }) => {
+const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({ options, question, direction }) => {
     const dispatch = useDispatch();
     const selectedValue = useSelector(
         (state: RootState) => state.survey.survey[question.id]
@@ -27,7 +28,13 @@ const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({ options, question }
     return (
         <div>
             <p className={styles.question}>{question.text}</p>
-            <div className={styles.radioGroup}>
+            <div 
+                className={`
+                    ${styles.radioGroup} 
+                    ${direction === 'column' ? styles.column : ''}
+                    ${direction === 'inline' ? styles.inline : ''}
+                `}
+            >
                 {options.map((label, index) => (
                     <label key={index} className={styles.radioLabel}>
                         <input

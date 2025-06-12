@@ -17,6 +17,7 @@ const SurveyGeneralUnit: React.FC = () => {
                     text: 'Как Вы оцениваете общее эмоциональное состояние вашего ребенка?' 
                 }}
                 options={options}
+                direction='column'
             />
             {generalUnitQuestions.map((question) => 
                 <Textarea

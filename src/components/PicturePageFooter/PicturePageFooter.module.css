@@ -1,16 +1,39 @@
-.footer{
+.footer {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
 }
 
-.step{
+.step {
     font-size: 14px;
     font-weight: 700;
     color: #A0A9B8;
 }
 
-.buttonBox{
+.buttonBox {
     display: flex;
     gap: 8px;
+}
+
+@media (max-width: 1200px) and (min-width: 640px) {
+    .footer {
+        flex-direction: column-reverse;
+        gap: 8px;
+    }
+    .step {
+        align-self: flex-start;
+    }
+}
+
+@media (max-width: 640px) {
+    .footer {
+        flex-direction: column-reverse;
+        gap: 24px;
+    }
+    .buttonBox {
+        flex-direction: column;
+    }
+    .step {
+        align-self: flex-start;
+    }
 }

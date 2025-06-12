@@ -13,6 +13,7 @@ const SurveyMainInfo: React.FC = () => {
                 <RadioButtonGroup 
                     question={{id: 'childGender', text: 'Пол ребенка'}} 
                     options={['Мужской', 'Женский']}
+                    direction='inline'
                 />
                 <Input id='parentName' text='Имя родителя, заполняющего анкету'/>
             </div>

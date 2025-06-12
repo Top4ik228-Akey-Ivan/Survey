@@ -1,6 +1,6 @@
 .button{
     background-color: var(--blue);
-    padding: 9px 29px;
+    padding: 9px 28px;
     display: flex;
     align-items: center;
     gap:8px;
@@ -14,4 +14,10 @@
     font-size: 16px;
     font-weight: 400;
     color: white;
+}
+
+@media (max-width: 640px) {
+    .button{
+        padding: 9px 25px;
+    }
 }

@@ -5,13 +5,14 @@
 
 /* Обертка для кастомной радиокнопки и текста */
 .radioLabel {
+  height: 20px;
   position: relative;
-  padding-left: 24px;
-  /* Отступ для кастомной кнопки слева */
+  padding: 3px 0 0 24px;
+
   cursor: pointer;
   font-size: 16px;
   user-select: none;
-  /* Запрет на выделение текста */
+
 }
 
 /* Скрытие стандартного input[type=radio] */
@@ -34,8 +35,9 @@
   content: "";
   position: absolute;
   display: none;
-  left: 6px;
-  top: 6px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -64,14 +66,35 @@
   /* Темно-голубой */
 }
 
-.question{
+.question {
   font-size: 16px;
   font-weight: 400;
 
   margin-bottom: 8px;
 }
 
-.answer{
+.answer {
   font-size: 12px;
   font-weight: 400;
+}
+
+
+@media (max-width: 1200px) and (min-width: 640px) {
+  .column {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .radioGroup {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .inline {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+  }
 }
