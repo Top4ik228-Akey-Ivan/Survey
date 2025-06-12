@@ -1,17 +1,29 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import styles from './PictureCard.module.css';
 import upload from '../../assets/icons/Upload.svg';
 import reload from '../../assets/icons/Reload.svg';
+import { setPicture } from '../../redux/slices/pictureSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import type { AppDispatch, RootState } from '../../redux/store';
+import type { PictureFile } from '../../pages/PicturePage/PicturePage';
 
 interface PictureCardProps {
     text: string;
     id: number;
-    onUpload: (id: number, uploaded: boolean) => void;
+    setFilesList: React.Dispatch<React.SetStateAction<PictureFile[]>>;
 }
 
-const PictureCard: React.FC<PictureCardProps> = ({ text, id, onUpload }) => {
+
+
+const PictureCard: React.FC<PictureCardProps> = ({ text, id, setFilesList }) => {
+    const dispatch: AppDispatch = useDispatch();
     const fileInputRef = useRef<HTMLInputElement>(null);
-    const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+
+    const previewUrl = useSelector((state: RootState) => {
+        const picture = state.pictures.uploadedPictures.find(p => p.id === id);
+        return picture ? picture.url : undefined;
+    });
+
 
     const handleIconClick = () => {
         fileInputRef.current?.click();
@@ -19,11 +31,24 @@ const PictureCard: React.FC<PictureCardProps> = ({ text, id, onUpload }) => {
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
-        if (file) {
-            const url = URL.createObjectURL(file);
-            setPreviewUrl(url);
-            onUpload(id, true);
-        }
+        if (!file) return;
+
+        const url = URL.createObjectURL(file);
+        dispatch(setPicture({ id, url }));
+
+        setFilesList((prevFilesList) => {
+            const existingIndex = prevFilesList.findIndex(f => f.id === id);
+
+            if (existingIndex !== -1) {
+                // Обновляем существующий файл
+                const newFilesList = [...prevFilesList];
+                newFilesList[existingIndex] = { id, file };
+                return newFilesList;
+            } else {
+                // Добавляем новый файл
+                return [...prevFilesList, { id, file }];
+            }
+        });
     };
 
     return (
@@ -54,6 +79,5 @@ const PictureCard: React.FC<PictureCardProps> = ({ text, id, onUpload }) => {
         </div>
     );
 };
-
 
 export default PictureCard;

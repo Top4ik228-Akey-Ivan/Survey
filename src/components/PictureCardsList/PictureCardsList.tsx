@@ -1,3 +1,4 @@
+import type { PictureFile } from "../../pages/PicturePage/PicturePage";
 import PictureCard from "../PictureCard/PictureCard";
 import styles from './PictureCardsList.module.css';
 
@@ -8,19 +9,19 @@ const pictures: { id: number, text: string }[] = [
 ]
 
 interface PictureCardsListProps {
-    onImageUpload: (id: number, uploaded: boolean) => void;
+    setFilesList: React.Dispatch<React.SetStateAction<PictureFile[]>>;
 }
 
+const PictureCardsList: React.FC<PictureCardsListProps> = ({ setFilesList }) => {
 
-const PictureCardsList: React.FC<PictureCardsListProps> = ({ onImageUpload }) => {
     return (
         <div className={styles.list}>
             {pictures.map((card) => (
                 <PictureCard
+                    setFilesList={setFilesList}
                     key={card.id}
                     id={card.id}
                     text={card.text}
-                    onUpload={onImageUpload}
                 />
             ))}
         </div>
