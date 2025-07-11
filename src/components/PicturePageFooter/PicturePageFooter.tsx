@@ -43,9 +43,10 @@ const PicturePageFooter: React.FC<PicturePageFooterProps> = ({
             formData.append('files', file);
         });
         try {
+            setCurrentStep((prev) => prev + 1);
             const response = await uploadPictures(formData).unwrap();
             dispatch(setTaskId(response.task_id));
-            setCurrentStep((prev) => prev + 1);
+            
         } catch (error) {
             console.error('Ошибка при загрузке файлов', error);
         }

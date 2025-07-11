@@ -58,12 +58,10 @@ const ResultsPage: React.FC<ResultsPageProps> = ({ currentStep, setCurrentStep }
         <div className='page'>
             <div className="contentContainer">
 
-                {data?.status === 'в обработке' && (
-                    <div className={styles.statusBox}>
-                        <p className={styles.statusText}>Анализ в процессе...</p>
-                        <Spinner />
-                    </div>
-                )}
+                <div className={styles.statusBox}>
+                    <p className={styles.statusText}>Анализ в процессе...</p>
+                    <Spinner />
+                </div>
 
                 <PicturePageFooter
                     currentStep={currentStep}
